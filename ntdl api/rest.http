@@ -1,0 +1,32 @@
+### get request
+GET http://localhost:8000/api/v1/task
+
+### post request
+POST http://localhost:8000/api/v1/task
+Content-Type: application/json
+
+{
+  "task": "watching tv",
+  "hr": 4
+}
+
+### patch request
+PATCH http://localhost:8000/api/v1/task
+Content-Type: application/json
+
+{
+  "_id": "653f1a98952ee16e4b38a689",
+  "type": "bad"
+}
+
+### delete request
+# DELETE http://localhost:8000/api/v1/task/653f1a98952ee16e4b38a689
+DELETE http://localhost:8000/api/v1/task/
+Content-Type: application/json
+
+{
+  "ids":[
+    "653f1901629deffdab881f42",
+    "653f1a98952ee16e4b38a689"
+  ]
+}
