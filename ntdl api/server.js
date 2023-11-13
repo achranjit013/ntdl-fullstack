@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import { connectMongo } from "./src/config/dbConfig.js";
 import {
@@ -9,9 +11,13 @@ import {
 } from "./src/model/TaskModel.js";
 import cors from "cors";
 
+import path from "path";
+const __dirname = path.resolve();
+
 const app = express();
 const PORT = 8000;
 
+app.use(express.static(__dirname + "/build"));
 // to parse the data that we receive from post method in the json format
 app.use(express.json());
 app.use(cors());
@@ -86,6 +92,8 @@ app.get("/", (req, res) => {
   res.json({
     message: "server is running normal",
   });
+
+  res.sendFile(__dirname + "/index.html");
 });
 
 app.listen(PORT, (error) => {
